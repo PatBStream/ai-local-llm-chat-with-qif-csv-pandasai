@@ -59,6 +59,15 @@ The backend exposes the following API endpoints if you wish to integrate with ot
 - `POST /upload_csv` – upload a CSV file
 - `POST /upload_qif` – upload a QIF file
 - `POST /chat` – send a question about the uploaded data
+- `GET /dataframe` – preview columns and sample rows from the uploaded data
+
+### Example: preview the DataFrame
+
+```bash
+curl "http://localhost:8000/dataframe?sample_rows=5"
+```
+
+This returns JSON with a `columns` list and a `sample` array of rows.
 
 Environment variables allow changing the target Ollama URL and CORS origins (see `docker-compose.yml` and `app/main.py`).
 
