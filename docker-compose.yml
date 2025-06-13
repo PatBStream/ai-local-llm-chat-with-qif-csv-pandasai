@@ -1,0 +1,41 @@
+# docker-compose.yml
+services:
+  qif-agent:
+    # Force this service to build & run as amd64 under QEMU
+    platform: linux/amd64
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    environment:
+      # point to your already-running Ollama on the host
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+      - CORS_ORIGINS=http://localhost:8501
+
+    ports:
+      - "8000:8000"
+    networks:
+      - qifnet
+
+  ui:
+    # (Optional) If your Streamlit UI also pulls in pandasai/NumPy,
+    # you can do the same here—but it may not be necessary.
+    # platform: linux/amd64
+
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+
+    environment:
+      - BACKEND_URL=http://qif-agent:8000
+
+    ports:
+      - "8501:8501"
+    depends_on:
+      - qif-agent
+    networks:
+      - qifnet
+
+networks:
+  qifnet:

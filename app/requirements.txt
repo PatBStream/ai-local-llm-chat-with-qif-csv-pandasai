@@ -1,0 +1,48 @@
+# Core dependencies
+streamlit
+pandas>=2.1.0
+pandasai>=2.0.0
+
+# LLM and AI libraries
+ollama  # Excellent ARM64 support
+langchain
+langchain-community
+
+# Data processing - pin compatible versions for ARM64
+numpy>=1.24.0,<2.0.0  # Compatible with pandas on ARM64
+openpyxl
+
+# File handling and parsing
+python-dateutil
+chardet
+
+# Web and HTTP
+requests
+httpx
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Caching and session management
+redis
+streamlit-chat
+
+# Logging and monitoring
+loguru
+
+# Environment and configuration
+python-dotenv
+pydantic
+pydantic-settings
+
+# Testing
+pytest
+pytest-asyncio
+
+# Development tools
+black
+flake8
+isort
+
+# Security
+cryptography  # Latest versions have excellent ARM64 support
