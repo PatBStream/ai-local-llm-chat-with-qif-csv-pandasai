@@ -1,5 +1,7 @@
 # AI Local LLM Chat with QIF/CSV via PandasAI
 
+Background:  A locally hosted website using Docker and your LLM, to "chat" with your QIF/CSV files.
+
 This repository contains a minimal FastAPI backend and Streamlit user interface for chatting with data contained in CSV or QIF files.  It uses the [PandasAI](https://pypi.org/project/pandasai/#description) library and a local language model served by [Ollama](https://ollama.com/) to answer questions about your data without relying on external services.
 
 **Key features**
