@@ -34,7 +34,7 @@ if uploaded:
     q = st.text_input("Ask a question about the data:")
     if st.button("Ask") and q:
         try:
-            resp = requests.post(f"{backend_url}/chat", data={"question": q}, timeout=60)
+            resp = requests.post(f"{backend_url}/chat", data={"question": q}, timeout=180)
             resp.raise_for_status()
             st.write("**Answer:**", resp.json().get("answer", ""))
         except RequestException as e:

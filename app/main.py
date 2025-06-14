@@ -120,15 +120,15 @@ async def chat_query(question: str = Form(...)):
 @app.get("/dataframe", response_model=DataFrameInfo)
 async def get_dataframe(sample_rows: int = 5):
     """Return columns and a sample of rows from the uploaded DataFrame."""
-    smart_df = smart_df_storage.get("smart_df")
-    if smart_df is None:
+    df = df_storage.get("df")
+    if df is None:
         raise HTTPException(
             400,
             "No data uploaded. POST to /upload_csv or /upload_qif first.",
         )
     try:
-        sample = smart_df.head(sample_rows).to_dict(orient="records")
-        return DataFrameInfo(columns=list(smart_df.columns), sample=sample)
+        sample = df.head(sample_rows).to_dict(orient="records")
+        return DataFrameInfo(columns=list(df.columns), sample=sample)
     except Exception as e:
         logger.error("Data preview error: %s", e)
         raise HTTPException(500, f"Failed to fetch dataframe preview: {e}")
