@@ -19,6 +19,9 @@ COPY app/requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir --only-binary=numpy "numpy>=1.24.0,<2.0.0" && \
     pip install --no-cache-dir --only-binary=pandas "pandas>=2.1.0" && \
+    pip install --no-cache-dir --only-binary=pandasai "pandasai>=3.0.0b2" && \
+    pip install --no-cache-dir "litellm" && \
+    pip install --no-cache-dir "pandasai-litellm" && \
     pip install --no-cache-dir --prefer-binary -r requirements.txt
 
 # 4️⃣ Copy your app code

@@ -1,12 +1,13 @@
 # Core dependencies
 streamlit
-pandas>=2.1.0
-pandasai>=2.0.0
+pandas>=2.2.0
+pandasai>=3.0.0b2
+litellm
 
 # LLM and AI libraries
 ollama  # Excellent ARM64 support
-langchain
-langchain-community
+#langchain
+#langchain-community
 
 # Data processing - pin compatible versions for ARM64
 numpy>=1.24.0,<2.0.0  # Compatible with pandas on ARM64
